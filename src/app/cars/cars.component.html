@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <div class="card">
+      <div class="card-header bg-dark text-white">
+        <h3>Editar Carro</h3>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" [(ngModel)]="car.nome" name="nome" placeholder="Nome do Carro..." required>
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="marca">Marca</label>
+            <input type="text" class="form-control" id="marca" [(ngModel)]="car.marca" name="marca" placeholder="Marca do Carro..." required>
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="placa">Placa</label>
+            <input type="text" class="form-control" id="placa" [(ngModel)]="car.placa" name="placa" placeholder="Placa do Carro..." required>
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="valorLocacao">Valor da Locação</label>
+            <input type="number" class="form-control" id="valorLocacao" [(ngModel)]="car.valorLocacao" name="valorLocacao" placeholder="Valor da Locação..." required>
+          </div>
+  
+          <div class="mt-4 text-right">
+            <button class="btn btn-danger" (click)="deleteCar()">
+              <i class="fas fa-trash-alt"></i> Excluir
+            </button>
+            <button type="submit" class="btn btn-success">
+              <i class="fas fa-save"></i> Salvar
+            </button>
+            <button type="button" class="btn btn-secondary" (click)="cancel()">
+              <i class="fas fa-arrow-left"></i> Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

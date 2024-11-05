@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h3>Editar Locação</h3>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="clienteId">Cliente</label>
+                    <select id="clienteId" [(ngModel)]="rental.clienteId" name="clienteId" class="form-control"
+                        required>
+                        <option *ngFor="let client of clients" [value]="client.id">{{ client.name }}</option>
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="carroId">Carro</label>
+                    <select id="carroId" [(ngModel)]="rental.carroId" name="carroId" class="form-control" required
+                        (change)="calculateTotal()">
+                        <option *ngFor="let car of cars" [value]="car.id">{{ car.nome }} - {{ car.marca }} - {{car.valorLocacao }}</option>
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="dias">Dias</label>
+                    <input type="number" id="dias" [(ngModel)]="rental.dias" name="dias" class="form-control" required
+                        (input)="calculateTotal()">
+                </div>
+                <div class="form-group mt-3">
+                    <label>Valor Total: {{ rental.valorTotal | currency:'BRL':'symbol' }}</label>
+                </div>
+                <div class="mt-4 text-right">
+                    <button class="btn btn-danger" (click)="deleteRental()">
+                        <i class="fas fa-trash-alt"></i> Excluir
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i> Salvar
+                    </button>
+                    <button type="button" class="btn btn-secondary" (click)="cancel()">
+                        <i class="fas fa-arrow-left"></i> Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>

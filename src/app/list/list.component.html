@@ -1,0 +1,91 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-dark text-white">
+      <h3>Locações</h3>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Carro</th>
+            <th>Dias</th>
+            <th>Valor</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rental of rentals">
+            <td>{{ getClientName(rental.clienteId) }}</td>
+            <td>{{ getCarName(rental.carroId) }}</td>
+            <td>{{ rental.dias }}</td>
+            <td>{{ rental.valorTotal }}</td>
+            <td>
+              <a class="btn btn-secondary" [routerLink]="['/rentals', rental.id]">Editar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-dark text-white">
+      <h3>Clientes</h3>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Endereço</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of clients">
+            <td>{{ client.name }}</td>
+            <td>{{ client.cpf }}</td>
+            <td>{{ client.address }}</td>
+            <td>
+              <a class="btn btn-secondary" [routerLink]="['/clients', client.id]">Editar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-dark text-white">
+      <h3>Carros</h3>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Carro</th>
+            <th>Marca</th>
+            <th>Placa</th>
+            <th>Valor da Locação</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars">
+            <td>{{ car.nome }}</td>
+            <td>{{ car.marca }}</td>
+            <td>{{ car.placa }}</td>
+            <td>{{ car.valorLocacao }}</td>
+            <td>
+              <a class="btn btn-secondary" [routerLink]="['/cars', car.id]">Editar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

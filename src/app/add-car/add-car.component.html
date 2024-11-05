@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-dark text-white">
+      <h3>Cadastrar Novo Carro</h3>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" [(ngModel)]="car.nome" name="nome" class="form-control" required>
+        </div>
+        <div class="form-group mt-3">
+          <label for="marca">Marca</label>
+          <input type="text" id="marca" [(ngModel)]="car.marca" name="marca" class="form-control" required>
+        </div>
+        <div class="form-group mt-3">
+          <label for="placa">Placa</label>
+          <input type="text" id="placa" [(ngModel)]="car.placa" name="placa" class="form-control" required>
+        </div>
+        <div class="form-group mt-3">
+          <label for="valorLocacao">Valor da Locação</label>
+          <input type="number" id="valorLocacao" [(ngModel)]="car.valorLocacao" name="valorLocacao" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">Cadastrar</button>
+        <button type="button" class="btn btn-secondary mt-4 ml-2" (click)="cancel()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+</div>
