@@ -17,27 +17,34 @@ export class ListComponent implements OnInit {
     this.clients = this.dataService.getClients();
     this.cars = this.dataService.getCars();
     this.rentals = this.dataService.getRentals();
-  }
-
-  getClientName(clienteId: number): string {
-    const client = this.clients.find(c => c.id === 1);
-    if (!client) {
-      console.log('Cliente não encontrado:', clienteId);
-      return 'Cliente não encontrado';
-    }
-    else{
-      console.log('Cliente encontrado:', clienteId);
-    }
-    return client.name; // Return empty string if client not found
+  
+    console.log('Clientes:', this.clients);
+    console.log('Locações:', this.rentals);
   }
   
-  getCarName(carroId: number): string {
-    const car = this.cars.find(c => c.id === 1);
-    
+
+  getClientName(clienteId: string): string {
+    console.log('Buscando cliente com ID:', clienteId);
+    const client = this.clients.find(c => c.id.toString() === clienteId);
+  
+    if (!client) {
+      console.warn('Cliente não encontrado:', clienteId);
+      return 'Cliente não encontrado';
+    }
+    console.log('Cliente encontrado:', client.name);
+    return client.name;
+  }
+  
+  getCarName(carroId: string): string {
+    console.log('Buscando carro com ID:', carroId);
+    const car = this.cars.find(c => c.id.toString() === carroId);
+  
     if (!car) {
       console.warn('Carro não encontrado:', carroId);
       return 'Carro não encontrado';
     }
+    console.log('Carro encontrado:', car.nome);
     return car.nome;
   }
+  
 }

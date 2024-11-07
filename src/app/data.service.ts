@@ -52,8 +52,10 @@ export class DataService {
   }
 
   // Obtém um cliente pelo ID
-  getClientById(id: number): Client | undefined {
-    return this.clients.find(client => client.id === id);
+  getClientById(clienteId: number): Client | undefined {
+    const client = this.clients.find(client => client.id === clienteId); // Verifique se carroId é um número
+    console.log(`Buscando carro com ID: ${clienteId}, Encontrado:`, client);
+    return client;
   }
 
   // Adiciona um cliente
